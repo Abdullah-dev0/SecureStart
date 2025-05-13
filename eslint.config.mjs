@@ -62,6 +62,14 @@ export default defineConfig([
 			"react/react-in-jsx-scope": "off",
 			"react/prop-types": "off",
 
+			"react/jsx-curly-brace-presence": [
+				"error",
+				{
+					props: "never",
+					children: "never",
+				},
+			],
+
 			"react/self-closing-comp": [
 				"error",
 				{
@@ -117,7 +125,7 @@ export default defineConfig([
 		files: ["app/**/*.ts?(x)", "components/**/*.ts?(x)"],
 
 		rules: {
-			"import/no-default-export": "off",
+			"import/no-default-export": "error",
 		},
 	},
 ]);
