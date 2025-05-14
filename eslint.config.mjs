@@ -124,8 +124,6 @@ export default defineConfig([
 	{
 		files: ["app/**/*.ts?(x)", "components/**/*.ts?(x)"],
 
-		rules: {
-			"import/no-default-export": "error",
-		},
+		rules: {},
 	},
 ]);
