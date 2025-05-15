@@ -116,8 +116,6 @@
   * {
     @apply border-border outline-ring/50;
   }
-
-
 }
 
 /* Animation CSS */
@@ -135,9 +133,6 @@
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
-
-
-
 
 /* Code blur effect */
 .code-blur {

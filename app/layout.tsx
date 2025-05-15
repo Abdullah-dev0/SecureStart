@@ -52,9 +52,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			{/* // please remove the background color from the body tag if you dont want it  */}
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background/80`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-					{children}
+					<main className="mx-auto flex flex-col w-full justify-center ">{children}</main>
 				</ThemeProvider>
 			</body>
 		</html>
