@@ -301,7 +301,7 @@ export function MagicLinkForm() {
 	];
 
 	return (
-		<>
+		<div className="flex flex-col justify-center items-center">
 			<Navbar />
 
 			{/* Hero Section */}
@@ -620,7 +620,7 @@ export function MagicLinkForm() {
 					</div>
 				</div>
 			</footer>
-		</>
+		</div>
 	);
 };
 
