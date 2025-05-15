@@ -22,10 +22,10 @@ const Navbar = () => {
 	return (
 		<header
 			className={cn(
-				"fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+				"fixed top-0 left-0 right-0 z-40 transition-all duration-300 max-w-7xl mx-auto",
 				scrolled ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-border/40" : "bg-transparent",
 			)}>
-			<div className="container flex h-16 items-center justify-between px-4 md:px-6">
+			<div className=" flex h-16 items-center justify-between px-4 md:px-6">
 				<div className="flex items-center gap-2">
 					<Link href="/" className="flex items-center space-x-2">
 						<div className="h-8 w-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-blue" />

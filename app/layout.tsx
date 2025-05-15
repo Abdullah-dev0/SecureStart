@@ -51,7 +51,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			{/* // please remove the background color from the body tag if you dont want it  */}
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background/80`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>

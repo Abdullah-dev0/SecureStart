@@ -301,12 +301,11 @@ export function MagicLinkForm() {
 	];
 
 	return (
-		<div className="flex flex-col justify-center items-center">
+		<div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto">
 			<Navbar />
-
 			{/* Hero Section */}
 			<section className="relative pt-28 pb-20 md:pt-32 md:pb-24 lg:pb-32 overflow-hidden">
-				<div className="container px-4 md:px-6">
+				<div className="px-4 md:px-6">
 					<div className="flex flex-col items-center text-center space-y-10">
 						<div className="space-y-4 max-w-3xl">
 							<h1
@@ -345,7 +344,7 @@ export function MagicLinkForm() {
 						</div>
 
 						<div
-							className="w-full max-w-3xl mt-12 rounded-xl overflow-hidden border shadow-xl animate-fade-in opacity-0"
+							className="w-full max-w-sm sm:max-w-3xl  mt-12 rounded-xl overflow-hidden border shadow-xl animate-fade-in opacity-0"
 							style={{ animationDelay: "0.7s" }}>
 							<div className="bg-slate-900 text-white px-4 py-2 flex items-center gap-2">
 								<div className="flex gap-1.5">
@@ -359,7 +358,7 @@ export function MagicLinkForm() {
 						</div>
 
 						<div
-							className="w-full max-w-3xl rounded-xl overflow-hidden border shadow-xl animate-fade-in opacity-0"
+							className="w-full max-w-sm sm:max-w-3xl rounded-xl overflow-hidden border shadow-xl animate-fade-in opacity-0"
 							style={{ animationDelay: "0.9s" }}>
 							<div className="bg-slate-900 text-white px-4 py-2 flex items-center gap-2">
 								<div className="flex gap-1.5">
@@ -375,7 +374,6 @@ export function MagicLinkForm() {
 					</div>
 				</div>
 			</section>
-
 			{/* Multiple Authentication Strategies Section */}
 			<section className="py-16 overflow-hidden">
 				<div className="container px-4 md:px-6">
@@ -431,7 +429,6 @@ export function MagicLinkForm() {
 					</div>
 				</div>
 			</section>
-
 			{/* Features Section */}
 			<section id="features" className="py-16 bg-background/50">
 				<div className="container px-4 md:px-6">
@@ -455,7 +452,6 @@ export function MagicLinkForm() {
 					</div>
 				</div>
 			</section>
-
 			{/* Auth Methods Section (Renamed to Integrations) */}
 			<section id="auth-methods" className="py-16">
 				<div className="container px-4 md:px-6">
@@ -478,7 +474,6 @@ export function MagicLinkForm() {
 					</div>
 				</div>
 			</section>
-
 			{/* Get Started Section */}
 			<section id="get-started" className="py-16 bg-background/50 border max-w-4xl mx-auto rounded-xl ">
 				<div className="container px-4 md:px-6 ">
@@ -505,7 +500,6 @@ export function MagicLinkForm() {
 					</div>
 				</div>
 			</section>
-
 			{/* Footer */}
 			<footer className="py-12 bg-background/30">
 				<div className="container px-4 md:px-6">
