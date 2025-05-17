@@ -53,7 +53,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			{/* // please remove the background color from the body tag if you dont want it  */}
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background/80`}>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
 					{children}
 				</ThemeProvider>

@@ -12,8 +12,8 @@ export function LoginForm() {
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
-				<CardContent className="max-w-md mx-auto w-full">
-					<form className="p-6 md:p-8">
+				<CardContent className="md:max-w-xl max-w-lg mx-auto w-full">
+					<form className="md:p-8" action={() => {}} method="POST">
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
 								<h1 className="text-2xl font-bold">Welcome back</h1>

@@ -12,8 +12,8 @@ export function SignupForm() {
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
-				<CardContent className="max-w-md mx-auto w-full">
-					<form className="p-6 md:p-8">
+				<CardContent className="max-w-lg md:max-w-xl mx-auto w-full">
+					<form className="md:p-8">
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
 								<h1 className="text-2xl font-bold">Create an account</h1>
@@ -38,7 +38,7 @@ export function SignupForm() {
 							<Button type="submit" className="w-full">
 								Sign Up
 							</Button>
-							<div className="relative my-2 text-center">
+							<div className="relative  text-center">
 								<div className="absolute inset-0 flex items-center">
 									<span className="w-full border-t border-border" />
 								</div>
