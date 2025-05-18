@@ -35,22 +35,22 @@ const Navbar = () => {
 
 				{/* Desktop Menu */}
 				<nav className="hidden md:flex items-center space-x-6">
-					<a href="#features" className="text-sm font-medium transition-colors hover:text-primary">
+					<Link href="#features" className="text-sm font-medium transition-colors hover:text-primary">
 						Features
-					</a>
-					<a href="#auth-methods" className="text-sm font-medium transition-colors hover:text-primary">
+					</Link>
+					<Link href="#auth-methods" className="text-sm font-medium transition-colors hover:text-primary">
 						Auth Methods
-					</a>
-					<a href="#get-started" className="text-sm font-medium transition-colors hover:text-primary">
+					</Link>
+					<Link href="/signin" className="text-sm font-medium transition-colors hover:text-primary">
 						Get Started
-					</a>
-					<a
+					</Link>
+					<Link
 						href="https://github.com/yourusername/better-auth"
 						className="text-sm font-medium transition-colors hover:text-primary"
 						target="_blank"
 						rel="noopener noreferrer">
 						GitHub
-					</a>
+					</Link>
 				</nav>
 
 				{/* Mobile Menu Button */}
@@ -63,30 +63,32 @@ const Navbar = () => {
 			{mobileMenuOpen && (
 				<div className="md:hidden bg-background border-b">
 					<nav className="container flex flex-col py-4 px-4 gap-2">
-						<a
+						<Link
 							href="#features"
 							className="text-sm font-medium py-2 transition-colors hover:text-primary"
 							onClick={() => setMobileMenuOpen(false)}>
 							Features
-						</a>
-						<a
+						</Link>
+						<Link
 							href="#auth-methods"
 							className="text-sm font-medium py-2 transition-colors hover:text-primary"
 							onClick={() => setMobileMenuOpen(false)}>
 							Auth Methods
-						</a>
-						<a
-							href="#get-started"
+						</Link>
+						<Link
+							href="/signin"
 							className="text-sm font-medium py-2 transition-colors hover:text-primary"
 							onClick={() => setMobileMenuOpen(false)}>
 							Get Started
-						</a>
-						<a
+						</Link>
+						<Link
 							href="https://github.com/yourusername/better-auth"
 							className="text-sm font-medium py-2 transition-colors hover:text-primary"
+							target="_blank"
+							rel="noopener noreferrer"
 							onClick={() => setMobileMenuOpen(false)}>
 							GitHub
-						</a>
+						</Link>
 						<Button size="sm" className="mt-2 w-full">
 							Documentation
 						</Button>

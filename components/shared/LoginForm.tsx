@@ -1,6 +1,6 @@
 "use client";
 
-import { Apple } from "lucide-react";
+import { Github } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -12,8 +12,8 @@ export function LoginForm() {
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
-				<CardContent className="md:max-w-xl max-w-lg mx-auto w-full">
-					<form className="md:p-8" action={() => {}} method="POST">
+				<CardContent className=" max-w-lg mx-auto w-full">
+					<form className="md:p-8" action={() => {}}>
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
 								<h1 className="text-2xl font-bold">Welcome back</h1>
@@ -32,7 +32,7 @@ export function LoginForm() {
 								</div>
 								<Input id="password" type="password" required />
 							</div>
-							<Button type="submit" className="w-full">
+							<Button type="submit" className="w-full cursor-pointer ">
 								Login
 							</Button>
 							<div className="relative my-2 text-center">
@@ -46,11 +46,11 @@ export function LoginForm() {
 								</div>
 							</div>
 							<div className="grid grid-cols-2 gap-4 justify-center">
-								<Button variant="outline" className="w-full">
-									<Apple className="h-5 w-5" />
-									<span className="sr-only">Login with Apple</span>
+								<Button variant="outline" type="button" className="w-full cursor-pointer">
+									<Github className="h-5 w-5" />
+									<span className="sr-only">Login with github</span>
 								</Button>
-								<Button variant="outline" className="w-full">
+								<Button variant="outline" type="button" className="w-full cursor-pointer">
 									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
 										<path
 											fill="#FFC107"

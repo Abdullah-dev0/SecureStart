@@ -12,7 +12,7 @@ export function SignupForm() {
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
-				<CardContent className="max-w-lg md:max-w-xl mx-auto w-full">
+				<CardContent className="max-w-lg  mx-auto w-full">
 					<form className="md:p-8">
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
@@ -49,11 +49,11 @@ export function SignupForm() {
 								</div>
 							</div>
 							<div className="grid grid-cols-2 gap-4 justify-center">
-								<Button variant="outline" className="w-full cursor-pointer">
+								<Button variant="outline" type="button" className="w-full cursor-pointer">
 									<Github className="h-5 w-5" />
-									<span className="sr-only">Sign up with Apple</span>
+									<span className="sr-only">Sign up with Github</span>
 								</Button>
-								<Button variant="outline" className="w-full  cursor-pointer">
+								<Button variant="outline" type="button" className="w-full  cursor-pointer">
 									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
 										<path
 											fill="#FFC107"
