@@ -1,3 +1,4 @@
+"use client";
 import { Check, Download, Github } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
