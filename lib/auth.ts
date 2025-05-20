@@ -20,7 +20,7 @@ export const auth = betterAuth({
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
 		},
 	},
-	trustedOrigins: ["http://localhost:3001", "https://authify.dev:3000"],
+	trustedOrigins: ["http://localhost:3001", "https://authify.dev:3000", "https://betterauth-kit.netlify.app"],
 	session: {
 		cookieCache: {
 			enabled: true,
