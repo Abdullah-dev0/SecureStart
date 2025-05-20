@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/providers/themeProviders";
+
 import "./globals.css";
 
 const latoFont = Lato({
@@ -51,6 +53,7 @@ export default function RootLayout({
 			<body className={`${latoFont.className} antialiased`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
 					{children}
+					<Toaster richColors />
 				</ThemeProvider>
 			</body>
 		</html>

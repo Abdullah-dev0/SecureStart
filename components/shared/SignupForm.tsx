@@ -1,19 +1,62 @@
 "use client";
 
-import { Github } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { signUp } from "@/lib/auth-client";
+
+import SocialLogin from "./SocialLogin";
 
 export function SignupForm() {
+	const [isPending, startTransition] = useTransition();
+	const router = useRouter();
+
+	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		startTransition(async () => {
+			const formData = new FormData(e.currentTarget);
+			const email = formData.get("email") as string;
+			const password = formData.get("password") as string;
+			const name = formData.get("name") as string;
+			const image = formData.get("image") as string;
+			const confirmPassword = formData.get("confirmPassword") as string;
+
+			if (password !== confirmPassword) {
+				toast.error("Passwords do not match");
+				return;
+			}
+			// Handle form submission logic here
+			await signUp.email(
+				{
+					email: email,
+					password: password,
+					name: name,
+					image: image,
+				},
+				{
+					onSuccess: () => {
+						toast.success("Sign up successful");
+						router.push("/dashboard");
+					},
+					onError: (error) => {
+						toast.error(error.error.message);
+					},
+				},
+			);
+		});
+	};
+
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
 				<CardContent className="max-w-lg  mx-auto w-full">
-					<form className="md:p-8">
+					<form className="md:p-8" onSubmit={onSubmit}>
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
 								<h1 className="text-2xl font-bold">Create an account</h1>
@@ -21,22 +64,22 @@ export function SignupForm() {
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="name">Full Name</Label>
-								<Input id="name" type="text" placeholder="John Doe" required />
+								<Input id="name" type="text" name="name" placeholder="John Doe" required />
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="email">Email</Label>
-								<Input id="email" type="email" placeholder="m@example.com" required />
+								<Input id="email" type="email" name="email" placeholder="m@example.com" required />
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="password">Password</Label>
-								<Input id="password" type="password" required />
+								<Input id="password" name="password" type="password" required />
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="confirmPassword">Confirm Password</Label>
-								<Input id="confirmPassword" type="password" required />
+								<Input id="confirmPassword" name="confirmPassword" type="password" required />
 							</div>
-							<Button type="submit" className="w-full">
-								Sign Up
+							<Button type="submit" className="w-full" disabled={isPending}>
+								{isPending ? "Signing up..." : "Sign Up"}
 							</Button>
 							<div className="relative  text-center">
 								<div className="absolute inset-0 flex items-center">
@@ -48,33 +91,7 @@ export function SignupForm() {
 									</span>
 								</div>
 							</div>
-							<div className="grid grid-cols-2 gap-4 justify-center">
-								<Button variant="outline" type="button" className="w-full cursor-pointer">
-									<Github className="h-5 w-5" />
-									<span className="sr-only">Sign up with Github</span>
-								</Button>
-								<Button variant="outline" type="button" className="w-full  cursor-pointer">
-									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-										<path
-											fill="#FFC107"
-											d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
-										/>
-										<path
-											fill="#FF3D00"
-											d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
-										/>
-										<path
-											fill="#4CAF50"
-											d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
-										/>
-										<path
-											fill="#1976D2"
-											d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
-										/>
-									</svg>
-									<span className="sr-only">Sign up with Google</span>
-								</Button>
-							</div>
+							<SocialLogin />
 							<div className="text-center text-sm">
 								Already have an account?{" "}
 								<Link href="/signin" className="underline underline-offset-4">

@@ -1,15 +1,12 @@
-"use client";
 import { Check, Download, Github } from "lucide-react";
 
+import AuthTabs from "@/components/shared/AuthTabs";
+import CodeSnippet from "@/components/shared/CodeSnippet";
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/navbar";
 import { Button } from "@/components/ui/button";
-
-import AuthTabs from "../components/shared/AuthTabs";
-import CodeSnippet from "../components/shared/CodeSnippet";
-import Footer from "../components/shared/Footer";
-import Navbar from "../components/shared/navbar";
-import { cloneCode, usageCode } from "../constants/auth";
-import { features, integrations } from "../constants/features";
-
+import { cloneCode, usageCode } from "@/constants/auth";
+import { features, integrations } from "@/constants/features";
 const HomePage = () => {
 	return (
 		<div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto">
