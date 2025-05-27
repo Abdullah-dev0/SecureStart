@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { toast } from "sonner";
 
 import { signUpAction } from "@/actions/auth.action";
 import { Button } from "@/components/ui/button";
@@ -15,12 +14,13 @@ import SocialLogin from "./SocialLogin";
 export function SignupForm() {
 	const [state, action, pending] = useActionState(signUpAction, undefined);
 
-	if (state?.error) {
-		return toast.error(state.error.toString());
-	}
-
 	return (
 		<div className="flex flex-col gap-6">
+			{state?.error && (
+				<div className="text-red-500 text-center">
+					{typeof state.error === "string" ? state.error : "An error occurred. Please try again."}
+				</div>
+			)}
 			<Card className="overflow-hidden">
 				<CardContent className="max-w-lg  mx-auto w-full">
 					<form className="md:p-8" action={action}>
