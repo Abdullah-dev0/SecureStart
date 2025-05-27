@@ -39,7 +39,7 @@ export const auth = betterAuth({
 		autoSignInAfterVerification: true,
 		sendVerificationEmail: async ({ user, url }) => {
 			const link = new URL(url);
-			link.searchParams.set("callbackURL", "/");
+			link.searchParams.set("callbackURL", "/dashboard");
 
 			await sendEmailAction({
 				to: user.email,
@@ -61,6 +61,16 @@ export const auth = betterAuth({
 		sendOnSignUp: true,
 		autoSignInAfterVerification: true,
 		expiresIn: 3600, // 1 hour
+		sendResetPassword: async ({ user, url }) => {
+			await sendEmailAction({
+				to: user.email,
+				subject: "Reset your password",
+				meta: {
+					description: "Click the link below to reset your password.",
+					link: `${url}`,
+				},
+			});
+		},
 	},
 	hooks: {
 		before: createAuthMiddleware(async (ctx) => {

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
+import { toast } from "sonner";
 
 import { signUpAction } from "@/actions/auth.action";
 import { Button } from "@/components/ui/button";
@@ -13,7 +14,11 @@ import SocialLogin from "./SocialLogin";
 
 export function SignupForm() {
 	const [state, action, pending] = useActionState(signUpAction, undefined);
-	console.log("SignupForm state:", state);
+
+	if (state?.error) {
+		return toast.error(state.error.toString());
+	}
+
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
@@ -26,15 +31,15 @@ export function SignupForm() {
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="name">Full Name</Label>
-								<Input id="name" type="text" name="name" placeholder="John Doe" required />
+								<Input id="name" type="text" name="name" disabled={pending} placeholder="John Doe" required />
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="email">Email</Label>
-								<Input id="email" type="email" name="email" placeholder="m@example.com" required />
+								<Input id="email" type="email" name="email" disabled={pending} placeholder="m@example.com" required />
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="password">Password</Label>
-								<Input id="password" name="password" type="password" required />
+								<Input id="password" name="password" type="password" disabled={pending} required />
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="confirmPassword">Confirm Password</Label>

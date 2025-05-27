@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 
 import { type ErrorCode, auth } from "@/lib/auth";
 
-export async function signUpAction(_preState: any, formData: FormData) {
+export async function signUpAction(initialstate: any, formData: FormData) {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 	const name = formData.get("name") as string;
