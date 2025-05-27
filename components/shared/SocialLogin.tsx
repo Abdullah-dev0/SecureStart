@@ -17,8 +17,13 @@ const SocialLogin = () => {
 				onSuccess: () => {
 					toast.success("Login successful");
 				},
-				onError: (error) => {
-					toast.error(error.error.message);
+				onError: (ctx) => {
+					if (ctx.error.status === 403) {
+						alert("Please verify your email address");
+					}
+					//you can also show the original error message
+					alert(ctx.error.message);
+					toast.error(ctx.error.error.message);
 				},
 			},
 		);

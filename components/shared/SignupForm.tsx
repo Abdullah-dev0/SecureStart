@@ -1,62 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
-import { toast } from "sonner";
+import { useActionState } from "react";
 
+import { signUpAction } from "@/actions/auth.action";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signUp } from "@/lib/auth-client";
 
 import SocialLogin from "./SocialLogin";
 
 export function SignupForm() {
-	const [isPending, startTransition] = useTransition();
-	const router = useRouter();
-
-	const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		startTransition(async () => {
-			const formData = new FormData(e.currentTarget);
-			const email = formData.get("email") as string;
-			const password = formData.get("password") as string;
-			const name = formData.get("name") as string;
-			const image = formData.get("image") as string;
-			const confirmPassword = formData.get("confirmPassword") as string;
-
-			if (password !== confirmPassword) {
-				toast.error("Passwords do not match");
-				return;
-			}
-			// Handle form submission logic here
-			await signUp.email(
-				{
-					email: email,
-					password: password,
-					name: name,
-					image: image,
-				},
-				{
-					onSuccess: () => {
-						toast.success("Sign up successful");
-						router.push("/dashboard");
-					},
-					onError: (error) => {
-						toast.error(error.error.message);
-					},
-				},
-			);
-		});
-	};
-
+	const [state, action, pending] = useActionState(signUpAction, undefined);
+	console.log("SignupForm state:", state);
 	return (
 		<div className="flex flex-col gap-6">
 			<Card className="overflow-hidden">
 				<CardContent className="max-w-lg  mx-auto w-full">
-					<form className="md:p-8" onSubmit={onSubmit}>
+					<form className="md:p-8" action={action}>
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col items-center text-center">
 								<h1 className="text-2xl font-bold">Create an account</h1>
@@ -78,8 +40,8 @@ export function SignupForm() {
 								<Label htmlFor="confirmPassword">Confirm Password</Label>
 								<Input id="confirmPassword" name="confirmPassword" type="password" required />
 							</div>
-							<Button type="submit" className="w-full" disabled={isPending}>
-								{isPending ? "Signing up..." : "Sign Up"}
+							<Button type="submit" className="w-full" disabled={pending}>
+								{pending ? "Signing up..." : "Sign Up"}
 							</Button>
 							<div className="relative  text-center">
 								<div className="absolute inset-0 flex items-center">

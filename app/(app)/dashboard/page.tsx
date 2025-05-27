@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 
-import { getUser } from "@/actions/user";
+import { getUser } from "@/actions/user.action";
 
 const GetSession = async () => {
 	const data = await getUser();
