@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
 
@@ -8,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signIn, sendVerificationEmail } from "@/lib/auth-client";
+import { sendVerificationEmail, signIn } from "@/lib/auth-client";
 
 import SocialLogin from "./SocialLogin";
 
@@ -16,6 +17,7 @@ export function LoginForm() {
 	const [isPending, startTransition] = useTransition();
 	const [show, setShow] = useState(false);
 	const [email, setEmail] = useState("");
+	const router = useRouter();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -34,6 +36,8 @@ export function LoginForm() {
 						toast.loading("Logging in...");
 					},
 					onSuccess: () => {
+						router.push("/dashboard");
+						toast.dismiss();
 						toast.success("Login successful");
 					},
 					onError: (error) => {
@@ -42,6 +46,7 @@ export function LoginForm() {
 							setShow(true);
 							return;
 						}
+						toast.dismiss();
 						toast.error(error.error.message);
 					},
 				},
