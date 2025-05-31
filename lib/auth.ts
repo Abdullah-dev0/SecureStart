@@ -5,7 +5,7 @@ import { createAuthMiddleware, APIError } from "better-auth/api";
 import { sendEmailAction } from "@/actions/sendEmail.action.";
 import { prismaClient } from "@/lib/prisma";
 
-const prisma = prismaClient; // Use the imported instance directly
+const prisma = prismaClient; 
 
 export const auth = betterAuth({
 	appName: "Authify",

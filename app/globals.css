@@ -138,3 +138,28 @@
 .code-blur {
   background: linear-gradient(to top, rgb(15, 23, 42) 0%, rgba(15, 23, 42, 0) 100%);
 }
+
+/* Disabled styling - Work with shadcn/ui components */
+.disabled-cursor {
+  cursor: not-allowed !important;
+}
+
+/* Override for form elements specifically */
+input[disabled],
+button[disabled],
+input:disabled,
+button:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+/* Ensure cursor shows on parent elements when hovering over disabled children */
+.cursor-not-allowed {
+  cursor: not-allowed !important;
+}
+
+/* Additional specificity for disabled states */
+button[data-slot="button"]:disabled,
+input[data-slot="input"]:disabled {
+  cursor: not-allowed !important;
+}

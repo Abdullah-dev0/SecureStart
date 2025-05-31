@@ -4,7 +4,15 @@ import { headers } from "next/headers";
 
 import { type ErrorCode, auth } from "@/lib/auth";
 
-export async function signUpAction(initialstate: any, formData: FormData) {
+type ActionState =
+	| {
+			error?: string;
+			success?: boolean;
+			message?: string;
+	  }
+	| undefined;
+
+export async function signUpAction(prevState: ActionState, formData: FormData) {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 	const name = formData.get("name") as string;
@@ -12,10 +20,8 @@ export async function signUpAction(initialstate: any, formData: FormData) {
 
 	if (password !== confirmPassword) {
 		return {
-			error: {
-				message: "Passwords do not match",
-				code: 400,
-			},
+			error: "Passwords do not match",
+			success: false,
 		};
 	}
 	try {
@@ -27,22 +33,25 @@ export async function signUpAction(initialstate: any, formData: FormData) {
 			},
 			headers: await headers(),
 		});
+
+		return {
+			success: true,
+			message: "Sign up successful! Please check your email to verify your account.",
+		};
 	} catch (err) {
 		if (err instanceof APIError) {
 			const errCode = err.body ? (err.body.code as ErrorCode) : "UNKNOWN";
 
 			switch (errCode) {
 				case "USER_ALREADY_EXISTS":
-					return { error: "Oops! Something went wrong. Please try again." };
+					return { error: "Oops! Something went wrong. Please try again.", success: false };
 				default:
-					return { error: err.message };
+					return { error: err.message, success: false };
 			}
 		}
 		return {
-			error: {
-				message: "An unexpected error occurred during sign up",
-				code: 500,
-			},
+			success: false,
+			error: "An unexpected error occurred during sign up",
 		};
 	}
 }

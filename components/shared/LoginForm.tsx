@@ -58,7 +58,7 @@ export function LoginForm() {
 		await sendVerificationEmail(
 			{
 				email,
-				callbackURL: "/", // The redirect URL after verification
+				callbackURL: "/login", // The redirect URL after verification
 			},
 			{
 				onError: (error) => {

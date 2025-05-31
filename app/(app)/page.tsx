@@ -3,7 +3,7 @@ import { Check, Download, Github } from "lucide-react";
 import AuthTabs from "@/components/shared/AuthTabs";
 import CodeSnippet from "@/components/shared/CodeSnippet";
 import Footer from "@/components/shared/Footer";
-import Navbar from "@/components/shared/navbar";
+import Navbar from "@/components/shared/Navbar";
 import { Button } from "@/components/ui/button";
 import { cloneCode, usageCode } from "@/constants/auth";
 import { features, integrations } from "@/constants/features";
