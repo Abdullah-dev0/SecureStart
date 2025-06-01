@@ -8,7 +8,7 @@ const authRoutes = ["/signin", "/signup"];
 export async function middleware(req: NextRequest) {
 	const { nextUrl } = req;
 	const sessionCookie = getSessionCookie(req, {
-		cookiePrefix: "authify",
+		cookiePrefix: "SecureStart",
 	});
 
 	const res = NextResponse.next();

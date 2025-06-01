@@ -12,7 +12,7 @@ const latoFont = Lato({
 });
 
 export const metadata: Metadata = {
-	title: "Better Auth Kit",
+	title: "SecureStart",
 	description: "A starter kit for authentication using Better Auth and Next.js",
 	keywords: ["authentication", "Next.js", "Better Auth", "auth kit", "starter kit"],
 	authors: [
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 		index: true,
 		follow: true,
 	},
-	metadataBase: new URL("https://better-auth-kit.vercel.app"),
+	metadataBase: new URL("https://securestart.netlify.app/"),
 	openGraph: {
 		type: "website",
 		locale: "en_US",
-		url: "https://better-auth-kit.vercel.app",
+		url: "https://securestart.netlify.app/",
 		title: "Better Auth Kit",
 		description: "A starter kit for authentication using Better Auth and Next.js",
 		siteName: "Better Auth Kit",
@@ -39,6 +39,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Better Auth Kit",
 		description: "A starter kit for authentication using Better Auth and Next.js",
+		site:"https://securestart.netlify.app/"
 	},
 };
 

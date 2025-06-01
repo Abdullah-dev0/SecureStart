@@ -1,12 +1,14 @@
-import { Check, Download, Github } from "lucide-react";
+import { Download } from "lucide-react";
+import Link from "next/link";
 
-import AuthTabs from "@/components/shared/AuthTabs";
 import CodeSnippet from "@/components/shared/CodeSnippet";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
+import SetupGuide from "@/components/shared/SetupGuide";
+import TechStack from "@/components/shared/TechStack";
 import { Button } from "@/components/ui/button";
-import { cloneCode, usageCode } from "@/constants/auth";
-import { features, integrations } from "@/constants/features";
+import { cloneCode, usageCode } from "@/constants";
+import { features } from "@/constants/features";
 const HomePage = () => {
 	return (
 		<div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto">
@@ -19,7 +21,7 @@ const HomePage = () => {
 								className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl animate-fade-in opacity-0"
 								style={{ animationDelay: "0.1s" }}>
 								Authentication{" "}
-								<span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
+								<span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
 									Starter Kit
 								</span>{" "}
 								for Next.js
@@ -35,14 +37,11 @@ const HomePage = () => {
 						<div
 							className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in opacity-0"
 							style={{ animationDelay: "0.5s" }}>
-							<Button size="lg" className="h-12 px-8 font-medium">
-								<Download className="h-5 w-5" />
-								Download Starter Kit
-							</Button>
-							<Button size="lg" variant="outline" className="h-12 px-8 font-medium hover:bg-background/80">
-								<Github className="h-5 w-5" />
-								View on GitHub
-							</Button>
+							<Link href="/signin">
+								<Button size="lg" className="h-12 px-8 font-medium">
+									Get Started
+								</Button>
+							</Link>
 						</div>
 
 						<div
@@ -76,17 +75,9 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* Multiple Authentication Strategies Section */}
-			<section className="overflow-hidden">
-				<div className="container px-4 md:px-6">
-					<div className="text-center mb-12 animate-fade-in opacity-0" style={{ animationDelay: "0.1s" }}>
-						<h2 className="md:text-4xl  text-xl font-bold mb-4">Multiple Authentication Strategies</h2>
-						<p className="text-muted-foreground max-w-4xl mx-auto md:text-lg">
-							Choose from various authentication methods or combine them for enhanced security.
-						</p>
-					</div>
-					<AuthTabs />
-				</div>
-			</section>
+
+			<TechStack />
+
 			{/* Features Section */}
 			<section id="features" className="mt-22">
 				<div className="container px-4 md:px-6">
@@ -110,30 +101,11 @@ const HomePage = () => {
 					</div>
 				</div>
 			</section>
-			{/* Auth Methods Section (Renamed to Integrations) */}
-			<section id="auth-methods" className="py-16">
-				<div className="container px-4 md:px-6">
-					<div className="text-center mb-12">
-						<h2 className="text-3xl font-bold mb-4">Integrations</h2>
-						<p className="text-muted-foreground max-w-2xl mx-auto">
-							Connect with your favorite tools and services, or implement your own custom flow.
-						</p>
-					</div>
 
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-						{integrations.map((method) => (
-							<div
-								key={method}
-								className="p-4 rounded-lg bg-card flex items-center gap-3 hover:shadow-md transition-all">
-								<Check className="text-success h-5 w-5 flex-shrink-0" />
-								<span>{method}</span>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
+			<SetupGuide />
+
 			{/* Get Started Section */}
-			<section id="get-started" className="py-16  max-w-4xl mx-auto rounded-xl ">
+			<section id="get-started" className="py-16  max-w-4xl mx-auto rounded-xl bg-background/20 w-full">
 				<div className="container px-4 md:px-6 ">
 					<div className="max-w-3xl mx-auto text-center">
 						<h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
@@ -142,13 +114,12 @@ const HomePage = () => {
 						</p>
 
 						<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-							<Button size="lg" className="h-12 px-8 font-medium">
-								<Download className="h-5 w-5" />
-								Download Starter Kit
-							</Button>
-							<Button size="lg" variant="outline" className="h-12 px-8 font-medium hover:bg-background/80">
-								View Documentation
-							</Button>
+							<Link href="https://github.com/Abdullah-dev0/SecureStart" target="_blank">
+								<Button size="lg" className="h-12 px-8 font-medium">
+									<Download className="h-5 w-5" />
+									Download Starter Kit
+								</Button>
+							</Link>
 						</div>
 					</div>
 				</div>

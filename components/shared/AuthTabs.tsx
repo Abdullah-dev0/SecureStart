@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-import { authTabs, authCodeSnippets } from "../../constants/auth";
+import { authTabs, authCodeSnippets } from "../../constants";
 
 import CodeSnippet from "./CodeSnippet";
 
