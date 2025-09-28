@@ -114,25 +114,6 @@ const TechStack = () => {
 					</div>
 				))}
 			</div>
-
-			<div className="mt-20 text-center">
-				<div className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 rounded-full border border-border/50 backdrop-blur-sm">
-					<div className="flex -space-x-1">
-						<div className="w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse" />
-						<div
-							className="w-3 h-3 bg-blue-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse"
-							style={{ animationDelay: "0.5s" }}
-						/>
-						<div
-							className="w-3 h-3 bg-purple-500 rounded-full border-2 border-white dark:border-gray-900 animate-pulse"
-							style={{ animationDelay: "1s" }}
-						/>
-					</div>
-					<p className="text-muted-foreground font-medium">
-						All technologies are production-ready with active community support
-					</p>
-				</div>
-			</div>
 		</div>
 	);
 };

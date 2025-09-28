@@ -5,7 +5,7 @@ import { createAuthMiddleware, APIError } from "better-auth/api";
 import { sendEmailAction } from "@/actions/sendEmail.action.";
 import { prismaClient } from "@/lib/prisma";
 
-const prisma = prismaClient; 
+const prisma = prismaClient;
 
 export const auth = betterAuth({
 	appName: "SecureStart",
@@ -22,7 +22,7 @@ export const auth = betterAuth({
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
 		},
 	},
-	trustedOrigins: ["http://localhost:3001", "https://authify.dev:3000", "https://securestart.netlify.app/"],
+	trustedOrigins: ["http://localhost:3000", "https://securestart.netlify.app/"],
 	session: {
 		cookieCache: {
 			enabled: true,

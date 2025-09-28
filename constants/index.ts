@@ -178,7 +178,22 @@ cd SecureStart`,
 		title: "Set Up Environment Variables",
 		description: "Configure your environment settings",
 		code: `cp .env.example .env.local
-# Update .env.local with your credentials`,
+
+
+DATABASE_URL=your_neon_postgres_connection_string
+NEXTAUTH_SECRET=your_long_random_secret
+NEXTAUTH_URL=http://localhost:3000
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_gmail_app_password
+
+ALLOWED_EMAIL_DOMAIN=gmail.com;example.org
+`,
 	},
 	{
 		title: "Set Up Prisma",

@@ -2,21 +2,19 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { sendVerificationEmail, signIn } from "@/lib/auth-client";
+import { signIn } from "@/lib/auth-client";
 
 import SocialLogin from "./SocialLogin";
 
 export function LoginForm() {
 	const [isPending, startTransition] = useTransition();
-	const [show, setShow] = useState(false);
-	const [email, setEmail] = useState("");
 	const router = useRouter();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,7 +41,6 @@ export function LoginForm() {
 					onError: (error) => {
 						if (error.error.status === 403) {
 							toast.error(error.error.message);
-							setShow(true);
 							return;
 						}
 						toast.dismiss();
@@ -52,23 +49,6 @@ export function LoginForm() {
 				},
 			);
 		});
-	};
-
-	const handleVerificatioEmail = async () => {
-		await sendVerificationEmail(
-			{
-				email,
-				callbackURL: "/login", // The redirect URL after verification
-			},
-			{
-				onError: (error) => {
-					toast.error(error.error.message);
-				},
-				onSuccess: () => {
-					toast.success("Verification email sent. Please check your inbox.");
-				},
-			},
-		);
 	};
 
 	return (
@@ -83,18 +63,7 @@ export function LoginForm() {
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="email">Email</Label>
-								<Input
-									id="email"
-									type="email"
-									disabled={isPending}
-									onChange={(e) => {
-										setEmail(e.target.value);
-										setShow(false); // Reset show state on email change
-									}}
-									name="email"
-									placeholder="m@example.com"
-									required
-								/>
+								<Input id="email" type="email" disabled={isPending} name="email" placeholder="m@example.com" required />
 							</div>
 							<div className="grid gap-2">
 								<div className="flex items-center">
@@ -125,11 +94,6 @@ export function LoginForm() {
 									Sign up
 								</Link>
 							</div>
-							{show && (
-								<Button onClick={handleVerificatioEmail} type="button" className="text-red-500 text-sm text-center">
-									Please verify your email address before logging in.
-								</Button>
-							)}
 						</div>
 					</form>
 				</CardContent>

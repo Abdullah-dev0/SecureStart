@@ -16,8 +16,6 @@ import {
 export const features = [
 	{ name: "Email & Password", icon: Mail, description: "Classic email and password authentication." },
 	{ name: "Social Logins", icon: Users, description: "Integrate with Google, GitHub, etc." },
-	{ name: "Magic Links", icon: KeyRound, description: "Passwordless login with magic links." },
-	{ name: "One-Time Passwords", icon: ScanLine, description: "Secure OTP for multi-factor authentication." },
 	{ name: "User Management", icon: Users, description: "Manage your users and their roles." },
 	{ name: "Customizable UI", icon: Palette, description: "Easily customize the look and feel." },
 	{ name: "Secure Sessions", icon: ShieldCheck, description: "Robust session management." },
