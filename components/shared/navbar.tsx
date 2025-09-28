@@ -1,5 +1,6 @@
-import { Github, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Link from "next/link";
+
 import { Button } from "../ui/button";
 
 const Header = () => {
