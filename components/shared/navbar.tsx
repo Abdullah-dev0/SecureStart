@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Button } from "../ui/button";
 
-const Header = () => {
+const Navbar = () => {
 	return (
 		<header className="fixed top-0 w-full  border-b border-border z-50">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,4 +28,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default Navbar;
