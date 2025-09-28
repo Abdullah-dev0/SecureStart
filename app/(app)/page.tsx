@@ -5,11 +5,10 @@ import CodeSnippet from "@/components/shared/CodeSnippet";
 import Footer from "@/components/shared/Footer";
 import SetupGuide from "@/components/shared/SetupGuide";
 import TechStack from "@/components/shared/TechStack";
+import Navbar from "@/components/shared/navbar-temp";
 import { Button } from "@/components/ui/button";
 import { cloneCode, usageCode } from "@/constants";
 import { features } from "@/constants/features";
-
-import Navbar from "../../components/shared/Navbar";
 const HomePage = () => {
 	return (
 		<div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto">
