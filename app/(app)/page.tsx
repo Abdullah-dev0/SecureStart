@@ -3,9 +3,9 @@ import Link from "next/link";
 
 import CodeSnippet from "@/components/shared/CodeSnippet";
 import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
 import SetupGuide from "@/components/shared/SetupGuide";
 import TechStack from "@/components/shared/TechStack";
-import Navbar from "@/components/shared/navbar-temp";
 import { Button } from "@/components/ui/button";
 import { cloneCode, usageCode } from "@/constants";
 import { features } from "@/constants/features";
