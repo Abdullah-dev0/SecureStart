@@ -3,7 +3,7 @@ import { Lato } from "next/font/google";
 
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/providers/themeProviders";
-
+// @ts-expect-error no types
 import "./globals.css";
 
 const latoFont = Lato({
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 		index: true,
 		follow: true,
 	},
-	metadataBase: new URL("https://securestart.netlify.app/"),
+	metadataBase: new URL("https://securestart.netlify.app"),
 	openGraph: {
 		type: "website",
 		locale: "en_US",
@@ -34,12 +34,28 @@ export const metadata: Metadata = {
 		title: "Better Auth Kit",
 		description: "A starter kit for authentication using Better Auth and Next.js",
 		siteName: "Better Auth Kit",
+		images: [
+			{
+				url: "/og-image.png",
+				width: 800,
+				height: 600,
+				alt: "Better Auth Kit",
+			},
+		],
 	},
 	twitter: {
 		card: "summary_large_image",
 		title: "Better Auth Kit",
 		description: "A starter kit for authentication using Better Auth and Next.js",
-		site:"https://securestart.netlify.app/"
+		site: "https://securestart.netlify.app",
+		images: [
+			{
+				url: "/og-image.png",
+				width: 800,
+				height: 600,
+				alt: "Better Auth Kit",
+			},
+		],
 	},
 };
 
