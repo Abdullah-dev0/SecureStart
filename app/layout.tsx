@@ -3,7 +3,7 @@ import { Lato } from "next/font/google";
 
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/providers/themeProviders";
-// @ts-expect-error no types
+
 import "./globals.css";
 
 const latoFont = Lato({
