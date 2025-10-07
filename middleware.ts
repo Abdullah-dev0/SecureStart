@@ -18,7 +18,7 @@ export async function middleware(req: NextRequest) {
 	const isOnAuthRoute = authRoutes.includes(nextUrl.pathname);
 
 	if (isOnProtectedRoute && !isLoggedIn) {
-		return NextResponse.redirect(new URL("/", req.url));
+		return NextResponse.redirect(new URL("/signin", req.url));
 	}
 
 	if (isOnAuthRoute && isLoggedIn) {
