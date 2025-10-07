@@ -9,6 +9,10 @@ type ActionState =
 			error?: string;
 			success?: boolean;
 			message?: string;
+			data?: {
+				name?: string;
+				email?: string;
+			};
 	  }
 	| undefined;
 
@@ -44,14 +48,15 @@ export async function signUpAction(prevState: ActionState, formData: FormData) {
 
 			switch (errCode) {
 				case "USER_ALREADY_EXISTS":
-					return { error: "Oops! Something went wrong. Please try again.", success: false };
+					return { error: "Oops! Something went wrong. Please try again.", success: false, data: { name, email } };
 				default:
-					return { error: err.message, success: false };
+					return { error: err.message, success: false, data: { name, email } };
 			}
 		}
 		return {
 			success: false,
 			error: "An unexpected error occurred during sign up",
+			data: { name, email },
 		};
 	}
 }

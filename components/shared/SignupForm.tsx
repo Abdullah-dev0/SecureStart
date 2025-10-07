@@ -40,11 +40,27 @@ export function SignupForm() {
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="name">Full Name</Label>
-								<Input id="name" type="text" name="name" disabled={pending} placeholder="John Doe" required />
+								<Input
+									id="name"
+									type="text"
+									name="name"
+									disabled={pending}
+									value={state?.data?.name}
+									placeholder="John Doe"
+									required
+								/>
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="email">Email</Label>
-								<Input id="email" type="email" name="email" disabled={pending} placeholder="m@example.com" required />
+								<Input
+									id="email"
+									type="email"
+									name="email"
+									value={state?.data?.email}
+									disabled={pending}
+									placeholder="m@example.com"
+									required
+								/>
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="password">Password</Label>
@@ -52,7 +68,7 @@ export function SignupForm() {
 							</div>
 							<div className="grid gap-2">
 								<Label htmlFor="confirmPassword">Confirm Password</Label>
-								<Input id="confirmPassword" name="confirmPassword" type="password" required />
+								<Input id="confirmPassword" name="confirmPassword" type="password" disabled={pending} required />
 							</div>
 							<Button type="submit" className="w-full" disabled={pending}>
 								{pending ? "Signing up..." : "Sign Up"}

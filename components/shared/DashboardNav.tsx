@@ -1,6 +1,7 @@
 "use client";
 
-import { ChevronDown, Home, LogOut, Menu, Search, Settings, User, UserCircle } from "lucide-react";
+import type { User } from "better-auth";
+import { ChevronDown, Home, LogOut, Menu, Search, UserCircle, User as UserIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -18,7 +19,7 @@ import {
 	DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-const DashboardNav = () => {
+const DashboardNav = ({ user }: { user: User }) => {
 	const router = useRouter();
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -36,19 +37,9 @@ const DashboardNav = () => {
 		});
 	};
 
-	const handleProfileClick = () => {
-		// Navigate to profile page or handle profile action
-		router.push("/dashboard/profile");
-	};
-
-	const handleSettingsClick = () => {
-		// Navigate to settings page or handle settings action
-		router.push("/dashboard/settings");
-	};
-
 	return (
 		<nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-			<div className="container flex h-16 max-w-screen-2xl items-center px-4 sm:px-6 lg:px-8">
+			<div className="container flex h-16 max-w-screen-2xl items-center px-4 sm:px-6 lg:px-8 mx-auto">
 				{" "}
 				{/* Logo Section */}
 				<div className="flex items-center">
@@ -75,8 +66,8 @@ const DashboardNav = () => {
 									<UserCircle size={24} className="text-muted-foreground" />
 								</div>
 								<div className="hidden sm:flex flex-col items-start">
-									<span className="text-sm font-medium">John Doe</span>
-									<span className="text-xs text-muted-foreground">john@example.com</span>
+									<span className="text-sm font-medium">{user.name}</span>
+									<span className="text-xs text-muted-foreground">{user.email}</span>
 								</div>
 								<ChevronDown size={16} className="text-muted-foreground" />
 							</Button>
@@ -84,13 +75,9 @@ const DashboardNav = () => {
 						<DropdownMenuContent align="end" className="w-56">
 							<DropdownMenuLabel>My Account</DropdownMenuLabel>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem onClick={handleProfileClick}>
-								<User className="mr-2 h-4 w-4" />
+							<DropdownMenuItem onClick={() => router.push("/dashboard/profile")}>
+								<UserIcon className="mr-2 h-4 w-4" />
 								<span>Profile</span>
-							</DropdownMenuItem>
-							<DropdownMenuItem onClick={handleSettingsClick}>
-								<Settings className="mr-2 h-4 w-4" />
-								<span>Settings</span>
 							</DropdownMenuItem>
 							<DropdownMenuSeparator />
 							<DropdownMenuItem onClick={handleLogout} className="text-destructive focus:text-destructive">
