@@ -3,7 +3,6 @@ import { Copy, Check } from "lucide-react";
 import Prism from "prismjs";
 import React, { useState, useEffect, useRef } from "react";
 // Import prism styles and languages
-// @ts-expect-error // Missing types
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-jsx";
@@ -11,7 +10,6 @@ import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-javascript";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
-// @ts-expect-error // Missing types
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 
 interface CodeSnippetProps {
